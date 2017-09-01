@@ -1,4 +1,7 @@
 //events - a super-basic Javascript (publish subscribe) pattern
+function myFunc () {
+   console.log('hello');
+}
 
 var events = {
   events: {},
@@ -24,12 +27,11 @@ var events = {
     }
   }
 };
-events.on('goDown', function (x) {
-	console.log('go down!' + x)
-});
-events.on('goDown', function (x) {
-	console.log('go down!' + x)
-});
-events.emit('goDown', 'data')
-//events.emit('goDown', 'data');
-console.log(events)
+events.on('goDown', myFunc);
+
+events.emit('goDown', 'data');
+console.log(events);
+
+events.off('goDown', myFunc);
+
+console.log(events);
